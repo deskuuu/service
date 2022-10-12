@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script/>
+        <controller_as>c</controller_as>
+        <css>.result-container {
+ margin-top: 10px;
+}</css>
+        <data_table>sp_instance_vlist</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>table,filter,maximum_entries,display_field,color,size,glyph,sp_page</field_list>
+        <has_preview>true</has_preview>
+        <id>test</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>test</name>
+        <option_schema>[{"name":"always_show","section":"Behavior","label":"Show even when empty","type":"boolean"},{"name":"panel_body_height","section":"Presentation","label":"List body height","type":"string"},{"name":"image_field","section":"Presentation","label":"Image field","type":"field_name"},{"name":"secondary_fields","section":"Data","label":"Secondary fields","type":"field_list"},{"name":"rounded_images","section":"Presentation","label":"Rounded images","type":"boolean"},{"displayValue":"Page","name":"list_page","section":"Data","label":"List page","type":"reference","value":"sp_page","ed":{"reference":"sp_page"}},{"name":"hide_footer","section":"Presentation","label":"Hide Footer","type":"boolean"},{"displayValue":"UI View","hint":"View to use when target page is a form","name":"view","section":"Behavior","label":"View","type":"reference","value":"sys_ui_view","ed":{"reference":"sys_ui_view"}},{"hint":"If checked, Simple List will not automatically updated based on changes to the filtered records","name":"disable_record_watcher","section":"Behavior","label":"Disable record watcher","type":"boolean"},{"name":"filter_acls","section":"Data","default_value":"false","label":"Enforce field-level Read ACLs on Filter query terms (may alter the query for unprivileged users)","type":"boolean"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	if (input.keywords != null && input.keywords != '')
+		data.items = getCatalogItems(input.keywords);
+	
+	function getCatalogItems(keywords) {
+	  var incident = new GlideRecord("incident");
+        incident.addQuery("state", 1);
+        incident.setLimit(10);
+        incident.query();
+		
+		var results = [];
+			  while (incident.next()) {
+         $sp.getRecordDisplayValues(item, incident, 'number,caller,category,priority','assignment_group','short_description');
+        }
+		
+			var item = {};
+		
+			results.push(item);
+		}
+		return results;
+})();
+
+
+    ]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-19 10:33:35</sys_created_on>
+        <sys_id>c3a27a532f595510b2ab3f96f699b604</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sp_widget_c3a27a532f595510b2ab3f96f699b604</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-19 11:30:35</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-primary">
+ <div class="panel-heading">Request an item from the catalog</div>
+ <div class="panel-body">
+   <input class="form-control" type="search" placeholder="Start typing here to search the list of catalog items" ng-model="c.data.keywords" ng-change="c.server.update()" ng-model-options="{debounce: 250}" />
+   <ul class="list-group result-container">
+     <li class="list-group-item" ng-repeat="item in c.data.items">
+       <a href>{{item.number}}</a>
+      <span class="pull-right">{{item.caller}}</span>
+       <a href>{{item.number}}</a><span class="pull-right">{{item.category}}</span>
+       <a href>{{item.number}}</a><span class="pull-right">{{item.priority}}</span>
+       <a href>{{item.number}}</a><span class="pull-right">{{item.assignment_group}}</span>
+       <a href>{{item.number}}</a><span class="pull-right">{{item.short_description}}</span>
+     </li>
+   </ul>
+ </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</application>
+        <file_path/>
+        <instance_id>ea74b21ddb9f0c943050ac44d49619a5</instance_id>
+        <instance_name>dev101878</instance_name>
+        <name>sp_widget_c3a27a532f595510b2ab3f96f699b604</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script/&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.result-container {
+ margin-top: 10px;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance_vlist&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list&gt;table,filter,maximum_entries,display_field,color,size,glyph,sp_page&lt;/field_list&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;test&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;test&lt;/name&gt;&lt;option_schema&gt;[{"name":"always_show","section":"Behavior","label":"Show even when empty","type":"boolean"},{"name":"panel_body_height","section":"Presentation","label":"List body height","type":"string"},{"name":"image_field","section":"Presentation","label":"Image field","type":"field_name"},{"name":"secondary_fields","section":"Data","label":"Secondary fields","type":"field_list"},{"name":"rounded_images","section":"Presentation","label":"Rounded images","type":"boolean"},{"displayValue":"Page","name":"list_page","section":"Data","label":"List page","type":"reference","value":"sp_page","ed":{"reference":"sp_page"}},{"name":"hide_footer","section":"Presentation","label":"Hide Footer","type":"boolean"},{"displayValue":"UI View","hint":"View to use when target page is a form","name":"view","section":"Behavior","label":"View","type":"reference","value":"sys_ui_view","ed":{"reference":"sys_ui_view"}},{"hint":"If checked, Simple List will not automatically updated based on changes to the filtered records","name":"disable_record_watcher","section":"Behavior","label":"Disable record watcher","type":"boolean"},{"name":"filter_acls","section":"Data","default_value":"false","label":"Enforce field-level Read ACLs on Filter query terms (may alter the query for unprivileged users)","type":"boolean"}]&lt;/option_schema&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	if (input.keywords != null &amp;&amp; input.keywords != '')
+		data.items = getCatalogItems(input.keywords);
+	
+	function getCatalogItems(keywords) {
+	  var incident = new GlideRecord("incident");
+        incident.addQuery("state", 1);
+        incident.setLimit(10);
+        incident.query();
+		
+		var results = [];
+			  while (incident.next()) {
+         $sp.getRecordDisplayValues(item, incident, 'number,caller,category,priority','assignment_group','short_description');
+        }
+		
+			var item = {};
+		
+			results.push(item);
+		}
+		return results;
+})();
+
+
+    ]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-08-19 10:33:35&lt;/sys_created_on&gt;&lt;sys_id&gt;c3a27a532f595510b2ab3f96f699b604&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;test&lt;/sys_name&gt;&lt;sys_package display_value="ServiceNowTasks" source="x_847697_serviceno"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="ServiceNowTasks"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_c3a27a532f595510b2ab3f96f699b604&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-08-19 11:30:35&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="panel panel-primary"&gt;
+ &lt;div class="panel-heading"&gt;Request an item from the catalog&lt;/div&gt;
+ &lt;div class="panel-body"&gt;
+   &lt;input class="form-control" type="search" placeholder="Start typing here to search the list of catalog items" ng-model="c.data.keywords" ng-change="c.server.update()" ng-model-options="{debounce: 250}" /&gt;
+   &lt;ul class="list-group result-container"&gt;
+     &lt;li class="list-group-item" ng-repeat="item in c.data.items"&gt;
+       &lt;a href&gt;{{item.number}}&lt;/a&gt;
+      &lt;span class="pull-right"&gt;{{item.caller}}&lt;/span&gt;
+       &lt;a href&gt;{{item.number}}&lt;/a&gt;&lt;span class="pull-right"&gt;{{item.category}}&lt;/span&gt;
+       &lt;a href&gt;{{item.number}}&lt;/a&gt;&lt;span class="pull-right"&gt;{{item.priority}}&lt;/span&gt;
+       &lt;a href&gt;{{item.number}}&lt;/a&gt;&lt;span class="pull-right"&gt;{{item.assignment_group}}&lt;/span&gt;
+       &lt;a href&gt;{{item.number}}&lt;/a&gt;&lt;span class="pull-right"&gt;{{item.short_description}}&lt;/span&gt;
+     &lt;/li&gt;
+   &lt;/ul&gt;
+ &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1338407132</payload_hash>
+        <record_name>test</record_name>
+        <reverted_from/>
+        <source>b258d29b2fd55510b2ab3f96f699b6f6</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-19 11:30:36</sys_created_on>
+        <sys_id>0abf3e1f2f595510b2ab3f96f699b63d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182b5de87950000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-19 11:30:36</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>42bf3e1fce5955103d5aee71dfc4053d</update_guid>
+        <update_guid_history>42bf3e1fce5955103d5aee71dfc4053d:-1338407132,0c3ffa1ffb5955104bf04c0f0cf1a1cb:-1084409480,edae3ed76c595510b87c9ff5b94620a5:-883130058,0bd9f21b34595510187f55be58502cdc:-1356263261,c689fed71859551025fbea6ea6dafb4a:-1028742781,38593ed7ef595510fb0ce5ee219b0f85:-1715894771,3f297e174f5955100eb4c5b9ddbb04b5:1948933704,ba093ad77e5955107ec258b059f1c626:1689693233,32e53a178e595510319b94ca89283dd1:-1025499111,0ba27a5339595510f18d73151c272505:-1541736208</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="test">2f85f3632fd99510b2ab3f96f699b634</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-20 10:04:18</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>07f00e031d48491c869d051f7619ec10</sys_id>
+        <sys_metadata>c3a27a532f595510b2ab3f96f699b604</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_scope_delete display_value="">c6f584af7b4b4086a7fdb8223c164a64</sys_scope_delete>
+        <sys_update_name>sp_widget_c3a27a532f595510b2ab3f96f699b604</sys_update_name>
+        <sys_update_version display_value="sp_widget_c3a27a532f595510b2ab3f96f699b604">0abf3e1f2f595510b2ab3f96f699b63d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-20 10:04:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

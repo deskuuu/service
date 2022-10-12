@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.changeUtility</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>When you open a [Change] record with Type==Emergency, if the assignment group is empty, display an error message that says: "The change request must have an assignment group!". If the assignment group field is not empty – check if the group has members. If no member of the group is found – display an info message, saying "The assigned group has no members!".</description>
+        <name>changeUtility</name>
+        <script><![CDATA[var changeUtility = Class.create();
+changeUtility.prototype = {
+
+    /**
+    * This function creates a query based on the paramters received(assignmentGroup) and returns the number of the members of the group.
+    *
+    * @param      {String}    assignmentGroup contains the sys_id of the Group.
+	
+    * @returns    {Integer}   membersCount the count of the members inside the Group.
+    */
+
+    getMembersCount: function(assignmentGroup) {
+        var grplistGR = new GlideAggregate('sys_user_grmember');
+
+        grplistGR.addAggregate('COUNT');
+        grplistGR.addEncodedQuery('group=' + assignmentGroup);
+        grplistGR.query();
+
+        var membersCount = 0;
+        while (grplistGR.next()) {
+            membersCount = grplistGR.getAggregate('COUNT');
+        }
+
+        return membersCount;
+    },
+
+    /**
+    * This function creates and prints message('The Assignment Group has no members!'/ 'The Assignment Group has ' + members + ' members!') on the Change form based on the parameters received(change) instance.
+    *
+    * @param     {obj}    change contains the instance of the manipulated Change.
+    */
+
+    printCheckMessage: function(change) {
+        var changeAssignmentGroup = change.getValue('assignment_group');
+		
+        var members = this.getMembersCount(changeAssignmentGroup);
+
+        var noMembersMsg = 'The Assignment Group has no members!',
+            hasMembersMsg = 'The Assignment Group has ' + members + ' members!';
+
+        if (members < 1) {
+            gs.addInfoMessage(noMembersMsg);
+        } else {
+            gs.addInfoMessage(hasMembersMsg);
+        }
+    },
+
+    type: 'changeUtility'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 11:55:19</sys_created_on>
+        <sys_id>8d97524e2fdd1110b2ab3f96f699b62c</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>changeUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_8d97524e2fdd1110b2ab3f96f699b62c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-24 13:06:05</sys_updated_on>
+    </sys_script_include>
+</record_update>

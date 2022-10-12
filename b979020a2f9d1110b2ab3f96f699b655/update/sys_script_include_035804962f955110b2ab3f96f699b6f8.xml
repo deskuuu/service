@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.serviceDeskReport</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>serviceDeskReport</name>
+        <script><![CDATA[var serviceDeskReport = Class.create();
+serviceDeskReport.prototype = {
+   initialize: function() {
+        this.groupSys_id = 'd625dccec0a8016700a222a0f7900d06';
+        this.titleReport = 'SERVICE DESK WEEKLY REPORT';
+        this.groupName = 'SERVICE DESK';
+        this.count = 0;
+        this.print = [];
+        this.groupMemebersMails = [];
+        this._queryIncident();
+        this._getMails();
+    },
+
+    _queryIncident: function() {
+        var incident = new GlideRecord('incident');
+        incident.addQuery('assignment_group', this.groupSys_id);
+
+        var qc = incident.addQuery('state', 1);
+        qc.addOrCondition('state',  2);
+        incident.orderBy('priority');
+        incident.query();
+
+        while (incident.next()) {
+            this.print.push('{' + incident.getValue('number') + '} –' + '{' + incident.getDisplayValue('priority') + '} – {' + incident.getValue('short_description') + '}');
+        }
+
+        this.count = this.print.length;
+    },
+
+    _getMails: function() {
+        var serviceDeskMembers = new GlideRecord("sys_user_grmember");
+        serviceDeskMembers.addQuery('group',  this.groupSys_id);
+        serviceDeskMembers.query();
+
+        while (serviceDeskMembers.next()) {
+            this.groupMemebersMails.push(serviceDeskMembers.user.email.toString());
+        }
+    },
+
+    getMessageReportTitle: function() {
+        return this.titleReport;
+    },
+
+    getCount: function() {
+        return this.count;
+    },
+
+    getPrint: function() {
+        return this.print;
+    },
+
+    getGroupMemberMails: function() {
+        return this.groupMemebersMails;
+    },
+
+    type: 'serviceDeskReport'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 19:41:51</sys_created_on>
+        <sys_id>035804962f955110b2ab3f96f699b6f8</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>serviceDeskReport</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_035804962f955110b2ab3f96f699b6f8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-30 10:16:03</sys_updated_on>
+    </sys_script_include>
+</record_update>

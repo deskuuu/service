@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="DELETE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_847697_serviceno.t45t45t45</name>
+        <script><![CDATA[function desi(){
+	
+}]]></script>
+        <script_name>t45t45t45</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-20 06:50:59</sys_created_on>
+        <sys_id>126276652f825110b2ab3f96f699b6bf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_847697_serviceno.t45t45t45</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_ui_script_126276652f825110b2ab3f96f699b6bf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-20 06:50:59</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</application>
+        <file_path/>
+        <instance_id>ea74b21ddb9f0c943050ac44d49619a5</instance_id>
+        <instance_name>dev101878</instance_name>
+        <name>sys_ui_script_126276652f825110b2ab3f96f699b6bf</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_script"&gt;&lt;sys_ui_script action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;description/&gt;&lt;global&gt;false&lt;/global&gt;&lt;ignore_in_now_experience&gt;false&lt;/ignore_in_now_experience&gt;&lt;name&gt;x_847697_serviceno.t45t45t45&lt;/name&gt;&lt;script&gt;&lt;![CDATA[function desi(){
+	
+}]]&gt;&lt;/script&gt;&lt;script_name&gt;t45t45t45&lt;/script_name&gt;&lt;sys_class_name&gt;sys_ui_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-09-20 06:50:59&lt;/sys_created_on&gt;&lt;sys_id&gt;126276652f825110b2ab3f96f699b6bf&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;x_847697_serviceno.t45t45t45&lt;/sys_name&gt;&lt;sys_package display_value="ServiceNowTasks" source="x_847697_serviceno"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="ServiceNowTasks"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_script_126276652f825110b2ab3f96f699b6bf&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-09-20 06:50:59&lt;/sys_updated_on&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;use_scoped_format&gt;false&lt;/use_scoped_format&gt;&lt;/sys_ui_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2053066841</payload_hash>
+        <record_name>x_847697_serviceno.t45t45t45</record_name>
+        <reverted_from/>
+        <source>d7263fc72f659110b2ab3f96f699b6ed</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-20 06:51:00</sys_created_on>
+        <sys_id>9a9236e92f825110b2ab3f96f699b6ac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18359aa0c750000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-20 06:51:00</sys_updated_on>
+        <type>UI Script</type>
+        <update_guid>d29236e9b78251101c3a99bfecbe7bac</update_guid>
+        <update_guid_history>d29236e9b78251101c3a99bfecbe7bac:2053066841</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-20 08:34:22</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_script">sys_ui_script</sys_db_object>
+        <sys_id>2d6e42001eee426c984c5f37ebdd9c19</sys_id>
+        <sys_metadata>126276652f825110b2ab3f96f699b6bf</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_847697_serviceno.t45t45t45</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_scope_delete display_value="">c6f584af7b4b4086a7fdb8223c164a64</sys_scope_delete>
+        <sys_update_name>sys_ui_script_126276652f825110b2ab3f96f699b6bf</sys_update_name>
+        <sys_update_version display_value="sys_ui_script_126276652f825110b2ab3f96f699b6bf">9a9236e92f825110b2ab3f96f699b6ac</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-20 08:34:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.incidentUtility</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>When an [Incident] record gets updated with state Resolved/Closed, look if there are any child [Incident] records. If so – update each with the same State, Resolution code and Resolution notes.</description>
+        <name>incidentUtility</name>
+        <script><![CDATA[var incidentUtility = Class.create();
+incidentUtility.prototype = {
+
+    /**
+    * This function creates a query based on the paramters received(parentIncident) and updates the excisting child with the same State, Resolution code and Resolution notes as the parent Incident.
+    *
+    * @param     {obj}     parent contains the the Incident instance.
+
+    */
+
+    updateChild: function(parentIncident) {
+        var parentID = parentIncident.getValue('parent_incident'),
+            parentState = parentIncident.getValue('state'),
+            parentCloseCode = parentIncident.getValue('close_code'),
+            parentCloseNote = parentIncident.getValue('close_notes');
+
+        var incidentChildGR = new GlideRecord('incident');
+        incidentChildGR.addEncodedQuery('parent_incident.sys_id=' + parentID);
+        incidentChildGR.query();
+
+        while (incidentChildGR.next()) {
+            incidentChildGR.state = parentState;
+            incidentChildGR.close_code = parentCloseCode;
+            incidentChildGR.close_notes = parentCloseNote;
+    
+            incidentChildGR.update();
+        }
+    },
+
+    type: 'incidentUtility'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 12:51:06</sys_created_on>
+        <sys_id>ffa96a022f515110b2ab3f96f699b67e</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>incidentUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_ffa96a022f515110b2ab3f96f699b67e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-24 12:46:29</sys_updated_on>
+    </sys_script_include>
+</record_update>

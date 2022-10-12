@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.changeClientUtility</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>When a user changes the Configuration Item field in a [Change] record, populate the Description field (do not delete the old description) with information from the [Configuration Item] record (Name, Asset tag, Manufacturer, Company). If any of those fields is empty, against the field name should be "N/A".</description>
+        <name>changeClientUtility</name>
+        <script><![CDATA[var changeClientUtility = Class.create();
+changeClientUtility.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    /**
+    * This function creates an object based on the paramters received (sysparm_configurationItem) and copy the fields(name, asset_tag, manufacturer, company) from the Configuration iteam.
+    *
+    * @param            {String}         sysparm_configurationItem          contains the sys_id of the Configuration iteam
+
+    * @returns          {obj}            dataObj                            the newly created obj {'name': , 'asset_tag': , 'manufacturer': , 'company': }
+    */
+
+    copyData: function() {
+        var configItem = this.getParameter('sysparm_configurationItem');
+        var configurationIteamGR = new GlideRecord("cmdb_ci");
+        //         configurationIteamGR.addQuery("sys_id", configItem);
+        //         configurationIteamGR.query();
+
+        var dataObj = {};
+
+        if (configurationIteamGR.get(configItem)) {
+            dataObj.name = this._getFieldValue('name', configurationIteamGR);
+            dataObj.assetTag = this._getFieldValue('asset_tag', configurationIteamGR);
+            dataObj.manufacturer = this._getFieldValue('manufacturer', configurationIteamGR);
+            dataObj.company = this._getFieldValue('company', configurationIteamGR);
+        }
+
+        return JSON.stringify(dataObj);
+    },
+
+    /**
+    * This function checks if a field of a Configuration iteam is empty based on the paramters received (fieldName, configurationIteamGR).
+    *
+    * @param            {String}            fieldName                     contains name for the checked field
+    * @param            {GlideRecord}       configurationIteamGR          contains GlideRecord for the checked Configuration team
+
+    * @returns          {String}            If the field is empty =>  "N/A", else returns => the field value of the configuration iteam
+    */
+
+    _getFieldValue: function(fieldName, configurationIteamGR) {
+        if (configurationIteamGR[fieldName].nil()) {
+            return "N/A";
+        }
+
+        return configurationIteamGR.getDisplayValue(fieldName);
+        // configurationIteamGR[fieldName].getDisplayValue();
+    },
+
+    type: 'changeClientUtility'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 14:36:08</sys_created_on>
+        <sys_id>c183cfc62f915110b2ab3f96f699b629</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>changeClientUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_c183cfc62f915110b2ab3f96f699b629</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-30 10:45:30</sys_updated_on>
+    </sys_script_include>
+</record_update>

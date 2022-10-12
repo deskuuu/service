@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.swPlanetUtility</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Supporting functions to get the data for planetes throught the REST Message "StarWars", GET StarWarsPlanet method.</description>
+        <name>swPlanetUtility</name>
+        <script><![CDATA[var swPlanetUtility = Class.create();
+swPlanetUtility.prototype = {
+
+    /**
+    * This function creates GET Request and gets data object for planet based on the paramters received(id) and returns object with properties planetData {'name':'', 'diameter':'','terrain':''}.
+    *
+    * @param {id} the id number for using the REST API.
+	
+    * @returns {object} returns object with properties planetData {'name':'', 'diameter':'','terrain':''}
+    */
+
+    getStarWarsPlanet: function(id) {
+        try {
+            var planetRequest = new sn_ws.RESTMessageV2('x_847697_serviceno.StarWars', 'GetStarWarsPlanet');
+            planetRequest.setStringParameterNoEscape('id', id);
+
+            var response = planetRequest.execute();
+            var responseBody = response.getBody();
+            var httpStatus = response.getStatusCode();
+            var parsedPlanet = JSON.parse(responseBody);
+
+            var planetData = {};
+
+            planetData.name = parsedPlanet.name;
+            planetData.diameter = parsedPlanet.diameter;
+            planetData.terrain = parsedPlanet.terrain;
+
+            return planetData;
+
+        } catch (ex) {
+            var message = ex.message;
+        }
+    },
+
+    /**
+    * This function creates GET Request and gets data object for planet based on the paramters received(id) and returns object with properties planetData {'name':''}.
+    *
+    * @param {id} the id number for using the REST API.
+	
+    * @returns {object} returns object with properties planetData {'name':''}
+    */
+
+    getPlanetName: function(id) {
+        var planetRequest = new sn_ws.RESTMessageV2('x_847697_serviceno.StarWars', 'GetStarWarsPlanet');
+        planetRequest.setStringParameterNoEscape('id', id);
+
+        var response = planetRequest.execute();
+        var responseBody = response.getBody();
+        var httpStatus = response.getStatusCode();
+        var parsedPlanet = JSON.parse(responseBody);
+
+        var planetData;
+
+        planetData = parsedPlanet.name;
+        return planetData;
+    },
+
+    /**
+     * This function creates a query for Planet to get the sys_id of the record with that name, based on the paramters (name) name of the planet.
+     *
+     * @param {string} name of the planet.
+	 
+	 * @returns {string} returns sys_id of the planet
+     */
+
+    getSysIDPlanet: function(name) {
+        var planet = new GlideRecord("x_847697_serviceno_sw_planets");
+        planet.addEncodedQuery('u_name=' + name);
+        planet.query();
+
+        var id;
+        if (planet.next()) {
+            id = planet.getValue('sys_id');
+        }
+
+        return id;
+    },
+
+    checkIfExistPlanetRecord: function(planetName) {
+        var exist = true;
+        var newPlanet = new GlideRecord("x_847697_serviceno_sw_planets");
+
+        newPlanet.addEncodedQuery('u_name=' + planetName);
+        newPlanet.query();
+
+        if (!newPlanet.hasNext()) {
+            exist = false;
+        }
+
+        return exist;
+    },
+
+    /**
+     * This function creates a new record Planet and insert it in the swPlanet table, and receives data object for planet based on the paramters (obj) {'name':'', 'diameter':'','terrain':''}.
+     *Checks if the planet already is in the planet table.
+	 
+     * @param {obj} data for the planet.
+     */
+
+    createPlanetRecord: function(planetData) {
+        var newPlanet = new GlideRecord("x_847697_serviceno_sw_planets");
+
+        var isExisting = this.checkIfExistPlanetRecord(planetData.name);
+
+        if (!isExisting) {
+            newPlanet.initialize();
+
+            newPlanet.u_name = planetData.name;
+            newPlanet.u_diameter = planetData.diameter;
+            newPlanet.u_terrain = planetData.terrain;
+
+            newPlanet.insert();
+        }
+    },
+
+    /**
+     * This function creates multiple records Planet and insert it in the swPlanet table, and receives integer for planet number based on the paramters (count).
+	 
+	  * @param {Integer} the number of new planets that will be created.
+     *
+     */
+
+    createMultiplePlanets: function(count) {
+
+        for (var planetIndex = 1; planetIndex <= count; planetIndex++) {
+            var planetData = this.getStarWarsPlanet(planetIndex);
+            this.createPlanetRecord(planetData);
+        }
+    },
+
+    type: 'swPlanetUtility'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-16 08:33:23</sys_created_on>
+        <sys_id>3053fe9e2fdd5110b2ab3f96f699b6ff</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>swPlanetUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_3053fe9e2fdd5110b2ab3f96f699b6ff</sys_update_name>
+        <sys_updated_by>desi.oauth</sys_updated_by>
+        <sys_updated_on>2022-10-06 07:47:40</sys_updated_on>
+    </sys_script_include>
+</record_update>

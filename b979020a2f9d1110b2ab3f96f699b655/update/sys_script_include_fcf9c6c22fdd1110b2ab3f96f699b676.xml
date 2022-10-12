@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.problemUtility</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>When an [Incident] record with state New / In Progress changes its priority to 1, create a [Problem] record, containing the same Short Description, Impact, Urgency, Category field values as the incident. A new work notes comment in the [Incident] record should be written in the following format: "New problem {PRBXXXXXXX} created from the incident" - replace the {PRBXXXXXXX} with the newly created [Problem] record number.</description>
+        <name>problemUtility</name>
+        <script><![CDATA[// ProblemUtility for Business Rule Task 1!
+
+var problemUtility = Class.create();
+problemUtility.prototype = {
+    /**
+    * This function creates a Problem based on the paramter received (problemInstace) and returns the sys_id of the newly created problem.
+    *
+	 (shortDescription, impact, urgency, category)
+    * @param    {String}      shortDescription contains the short description for the Problem
+    * @param    {Integer}     impact contains the impact for the Problem
+    * @param    {Integer}     urgency contains the urgency for the Problem
+	* @param    {String}      category contains the category for the Problem
+	
+    * @returns  {String}      problemID the newly created Problem sys_id
+    */
+
+    createProblem: function(problemInstace) {
+        var shortDescription = problemInstace.getValue('short_description'),
+            impact = problemInstace.getValue('impact'),
+            urgency = problemInstace.getValue('urgency'),
+            category = problemInstace.getValue('category');
+
+        var problem = new GlideRecord('problem');
+
+        problem.initialize();
+
+        problem.short_description = shortDescription;
+        problem.impact = impact;
+        problem.urgency = urgency;
+        problem.category = category;
+
+        var problemID = problem.insert();
+
+        return problemID;
+    },
+
+    /**
+    * This function returns a Problem 'Number' based on the paramters received (problemID) and returns the 'number' of a Problem queried on sys_id.
+    *
+    * @param      {String}     problemID contains the Problem sys_id for the Problem
+	
+    * @returns    {String}     number the 'Number' of the Problem queried by sys_id
+    */
+
+    getProblemNumber: function(problemID) {
+        var problem = new GlideRecord('problem');
+        var number;
+
+        if (problem.get(problemID)) {
+            number = problem.getDisplayValue('number');
+        }
+
+        return number;
+    },
+
+    /**
+    * This function returns a work_note message containing a 'Number' from a Problem  based on the paramters received (problemSysID) and returns message string.
+    *
+	* @param     {obj}         incident contains the incident instance
+    * @param     {String}      problemNumber contains the Problem SysID Number 
+    */
+
+    setWorkNoteMessage: function(incident, problemSysID) {
+        var problemNumber = this.getProblemNumber(problemSysID);
+
+        var workNoteMessage = "New problem {" + problemNumber + "} created from the Incident!";
+
+       // incident.setValue('work_notes', workNoteMessage); Ne raboti?!
+		incident.work_notes = workNoteMessage;
+        incident.update();
+    },
+
+    /**
+     * This function updates the Description(model: 'Assigned to: ' + newAssignedTo) of a Problem based on the paramters received object (currentProblem).
+     *
+     * @param     {object}    currentProblem contains the instance for the Problem that is modified.
+     */
+
+    updateDescription: function(currentProblem) {
+        var problemNumber = currentProblem.getValue('number'),
+            newAssignedTo = currentProblem.getDisplayValue('assigned_to'),
+            previousDescription = currentProblem.getValue('description'),
+            message = 'Assigned to: ' + newAssignedTo;
+
+        var problemGR = new GlideRecord('problem');
+        problemGR.addQuery('number', problemNumber);
+        problemGR.query();
+
+        if (problemGR.next()) {
+            problemGR.description = previousDescription + '\n' + message;
+            problemGR.update();
+        }
+    },
+
+    type: 'problemUtility'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 11:00:22</sys_created_on>
+        <sys_id>fcf9c6c22fdd1110b2ab3f96f699b676</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>problemUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_fcf9c6c22fdd1110b2ab3f96f699b676</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-24 14:23:35</sys_updated_on>
+    </sys_script_include>
+</record_update>

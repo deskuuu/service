@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.restUtility</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>restUtility</name>
+        <script><![CDATA[var restUtility = Class.create();
+restUtility.prototype = {
+
+    postIncident: function(current) {
+
+//         var body = {
+//             'short_description': current.short_description.toString(),
+//             'caller_id': current.getDisplayValue('caller_id'),
+//             'category': current.getValue('category')
+//         };
+
+        try {
+            var restMsg = new sn_ws.RESTMessageV2('x_847697_serviceno.Incident Integration', 'Incident Post');
+            restMsg.setStringParameterNoEscape('category', current.getValue('category'));
+            restMsg.setStringParameterNoEscape('short_description', current.short_description.toString());
+            restMsg.setStringParameterNoEscape('caller_id', current.getValue('caller_id'));
+          //  restMsg.setRequestBody(JSON.stringify(body));
+
+            var response = restMsg.execute();
+            var responseBody = response.getBody();
+            var json = responseBody;
+            var obj = JSON.parse(json);
+
+            var httpStatus = response.getStatusCode();
+
+        } catch (ex) {
+            var message = ex.message;
+        }
+
+    },
+
+//     updateIncident: function(current) {
+//         try {
+//             var r = new sn_ws.RESTMessageV2('x_847697_serviceno.Incident Integration', 'Incident Update');
+//             r.setStringParameterNoEscape('category', current.category);
+//             r.setStringParameterNoEscape('number', current.number);
+
+//             var response = r.execute();
+//             var responseBody = response.getBody();
+//             var httpStatus = response.getStatusCode();
+//         } catch (ex) {
+//             var message = ex.message;
+//         }
+//     },
+
+    type: 'restUtility'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-07 11:28:49</sys_created_on>
+        <sys_id>7525f8292f351110b2ab3f96f699b61e</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>restUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_7525f8292f351110b2ab3f96f699b61e</sys_update_name>
+        <sys_updated_by>desi.oauth</sys_updated_by>
+        <sys_updated_on>2022-10-06 07:28:08</sys_updated_on>
+    </sys_script_include>
+</record_update>

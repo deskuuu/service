@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>When you open an [Incident] record, an info message is displayed "There are {Number of opened child incidents} opened incidents: {INCXXXXXX}, {INCXXXXX} …" – check for child [Incident] records with state New/In progress.</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Incident Display Open Numbers</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+
+    var parent = g_form.getUniqueValue();
+
+    var incidentUtility = new GlideAjax('incidentClientUtility');
+
+    incidentUtility.addParam('sysparm_name', 'checkForChild');
+    incidentUtility.addParam('sysparm_parentIncident', parent);
+
+    incidentUtility.getXMLAnswer(
+        function(childIncidents) {
+            if (childIncidents) {
+				// due the answer shall be arr with all the incidens numbers
+                var incidents = childIncidents.split(',');
+                g_form.addInfoMessage('There are ' + incidents.length + ' opened incidents: ' + incidents);
+            } else {
+                g_form.addErrorMessage('There are NO open incidents.');
+            }
+        }
+    );
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 13:30:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c870f2c62f515110b2ab3f96f699b643</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Incident Display Open Numbers</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_client_c870f2c62f515110b2ab3f96f699b643</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-30 10:53:19</sys_updated_on>
+        <table>incident</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

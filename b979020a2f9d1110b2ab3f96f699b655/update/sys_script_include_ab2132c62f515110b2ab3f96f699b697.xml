@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.incidentClientUtility</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>When you open an [Incident] record, an info message is displayed "There are {Number of opened child incidents} opened incidents: {INCXXXXXX}, {INCXXXXX} …" – check for child [Incident] records with state New/In progress.</description>
+        <name>incidentClientUtility</name>
+        <script><![CDATA[var incidentClientUtility = Class.create();
+incidentClientUtility.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    /**
+    * This function creates a query based on the paramters received(sysparm_parentIncident) and returns list with all open Incident child.
+    *
+    * @param    {String}   sysparm_parentIncident contains the sys_id of the parent Incident.
+	
+    * @returns  {Array}    Incident child numbers who are open - state is New or In progress.
+    */
+
+    checkForChild: function() {
+
+        var parentSysID = this.getParameter('sysparm_parentIncident');
+        var incidentChild = new GlideRecord('incident');
+
+        incidentChild.addQuery('parent_incident', parentSysID);
+		
+        var queryState = incidentChild.addQuery('incident_state', 1);
+		queryState.addOrCondition('incident_state', 2);
+
+        incidentChild.query();
+
+        var child = [];
+        while (incidentChild.next()) {
+            child.push(incidentChild.getValue('number'));
+        }
+
+        return child.toString();
+    },
+
+
+    /**
+    * This function creates a query to check if the Group has members based on the paramters received(sysparm_groupName) and returns T/F if any.
+    *
+    * @param    {String}  sysparm_groupName contains the sys_id of the Group Incident name.
+	
+    * @returns  {T/F}     if any child in the Group.
+    */
+
+    checkIfMembers: function() {
+
+        var groupName = this.getParameter('sysparm_groupName'),
+            hasMembers = false;
+
+        var members = new GlideRecord("sys_user_grmember");
+        members.addQuery('group', groupName);
+        members.query();
+
+        if (members.hasNext()) {
+            hasMembers = true;
+        }
+
+        return hasMembers;
+    },
+
+    /**
+    * This function returns an error message property.
+    *
+	
+    * @returns   {string}    Error message for Incident withought Assignment group.
+    */
+
+    getErrorMessage: function() {
+
+        var errMsg = gs.getProperty('x_847697_serviceno.assignedToErrMsg');
+
+        return errMsg;
+    },
+
+    /**
+     * This function checks if an Incident record with label 'Priority = 1' has related Affected CI, based on the paramters received (sysparm_incidentNumber) and returns T/F if any child.
+     *
+     * @param    {String}   sysparm_incidentNumber contains the sys_id for the parent incident
+	 
+     * @returns  {T/F}      hasRelatedChild if the Incident has any related child
+     */
+
+    validateCellEdit: function() {
+        var incidentParentSysID = this.getParameter('sysparm_shortDescriptionID');
+        var relatedAffectedCI = new GlideRecord('task_ci');
+        var hasRelatedChild = false;
+
+        relatedAffectedCI.addEncodedQuery('task.priority=1^task=' + incidentParentSysID);
+        relatedAffectedCI.query();
+
+        if (relatedAffectedCI.hasNext()) {
+            hasRelatedChild = true;
+        }
+
+        return hasRelatedChild;
+    },
+
+    //     checkForRelatedCIs: function() {
+    //         var incidents = this.getParameter('sysparm_incidentParentSysID');
+    //         if (incidents.length > 32) {
+    //             var incidentParentSysIDs = incidents.split(',');
+
+    //             for (var i = 0; i < incidentParentSysIDs.length; i++) {
+    //                 return this.checkForRelatedCI(incidentParentSysIDs[i]);
+    //             }
+    //         } else {
+    //             return this.checkForRelatedCI(incidents);
+    //         }
+
+    //     },
+
+    type: 'incidentClientUtility'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 13:30:37</sys_created_on>
+        <sys_id>ab2132c62f515110b2ab3f96f699b697</sys_id>
+        <sys_mod_count>59</sys_mod_count>
+        <sys_name>incidentClientUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_ab2132c62f515110b2ab3f96f699b697</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-30 11:05:15</sys_updated_on>
+    </sys_script_include>
+</record_update>

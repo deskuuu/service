@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <caller_access/>
+        <description>Triggers the [Incident Weekly Report] notification.</description>
+        <event_name>x_847697_serviceno.incident.weekly_repor</event_name>
+        <fired_by>Schedued job: [Service Desk Weekly Report]</fired_by>
+        <queue/>
+        <suffix>incident.weekly_report</suffix>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-30 09:52:26</sys_created_on>
+        <sys_id>361ab2f82f921110b2ab3f96f699b6cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_847697_serviceno.incident.weekly_repor</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sysevent_register_361ab2f82f921110b2ab3f96f699b6cf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-30 09:52:26</sys_updated_on>
+        <table>incident</table>
+    </sysevent_register>
+</record_update>

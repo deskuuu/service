@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.swCharacterUtility</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>swCharacterUtility</name>
+        <script><![CDATA[var swCharacterUtility = Class.create();
+swCharacterUtility.prototype = {
+
+    /**
+    * This function creates GET Request and gets data object for character based on the paramters received(id) and returns object with properties planetData (obj) {'name':'', 'height':'','mass':'', 'birth_year':'','homeworld':''}.
+    *
+    * @param {id} the id number for using the REST API.
+	
+    * @returns {object} returns object with properties characterData  (obj) {'name':'', 'height':'','mass':'', 'birth_year':'','homeworld':''}
+    */
+
+    getStarWarsCharacter: function(id) {
+        try {
+            var characterRequest = new sn_ws.RESTMessageV2('x_847697_serviceno.StarWars', 'GetStarWarsCharacter');
+            characterRequest.setStringParameterNoEscape('id', id);
+
+            var response = characterRequest.execute();
+            var responseBody = response.getBody();
+            var httpStatus = response.getStatusCode();
+            var parsedCharacter = JSON.parse(responseBody);
+
+            var characterData = {};
+
+            characterData.name = parsedCharacter.name;
+            characterData.height = parsedCharacter.height;
+            characterData.mass = parsedCharacter.mass;
+            characterData.birth_year = parsedCharacter.birth_year;
+            characterData.homeworld = parsedCharacter.homeworld;
+
+            return JSON.stringify(characterData);
+
+        } catch (ex) {
+            var message = ex.message;
+        }
+    },
+
+    checkIfExistCharacterRecord: function(characterName) {
+        var exist = true;
+        var newCharacter = new GlideRecord("x_847697_serviceno_sw_characters");
+
+      //  newCharacter.addEncodedQuery('GOTOu_name>=' + characterName);
+	  newCharacter.addEncodedQuery('u_name=' + characterName);
+		newCharacter.query();
+		
+        if (!newCharacter.hasNext()) {
+            exist = false;
+        }
+
+        return exist;
+    },
+
+
+    /**
+     * This function creates a new record Character and insert it in the sw characters table, and receives data object for character based on the paramters (obj) {'name':'', 'height':'','mass':'', 'birth_year':'','homeworld':''}.
+     *
+	 The fuction reuse fuctions: getPlanetName(indexPlanet), getSysIDPlanet(indexPlanet) from other script include swPlanetUtility();
+     * @param {obj} data for the character.
+     */
+
+    createCharacterRecord: function(data) {
+        var newCharacter = new GlideRecord("x_847697_serviceno_sw_characters");
+      var characterData =  JSON.parse(data);
+
+        var isExisting = this.checkIfExistCharacterRecord(characterData.name);
+
+        if (!isExisting) {
+            newCharacter.initialize();
+
+            newCharacter.u_name = characterData.name;
+            newCharacter.u_height = characterData.height;
+            newCharacter.u_mass = characterData.mass;
+            newCharacter.u_birth_year = characterData.birth_year;
+
+            var swPlanetData = characterData.homeworld;
+            // gets only the id of the planet due the obj returns string with rest API "https://swapi.dev/api/planets/${id}"
+            var indexPlanet = swPlanetData.substring(swPlanetData.length - 2, swPlanetData.length - 1);
+
+            // search in the SW planets table and finds the name of the planet
+            var planetName = new swPlanetUtility().getPlanetName(indexPlanet);
+
+            var isExist = new swPlanetUtility().checkIfExistPlanetRecord(planetName);
+            if (isExist) {
+                var sysID = new swPlanetUtility().getSysIDPlanet(planetName);
+                newCharacter.u_homeworld.setValue(sysID);
+
+                newCharacter.insert();
+            } else {
+                var newPlanet = new swPlanetUtility();
+                var newPlanetData = newPlanet.getStarWarsPlanet(indexPlanet);
+                newPlanet.createPlanetRecord(newPlanetData);
+
+                var name = new swPlanetUtility().getPlanetName(indexPlanet);
+				// var sysId = new swPlanetUtility().getSysIDPlanet(JSON.parse(newPlanetData).name);
+                var sysId = new swPlanetUtility().getSysIDPlanet(name);
+                newCharacter.u_homeworld.setValue(sysId);
+
+                newCharacter.insert();
+            }
+            //  What if the character is new and the country does not exist in the database? Shall create it first
+        }
+        
+    },
+
+    /**
+     * This function creates multiple records Character and insert it in the swCharacter table, and receives 'count' the number of new characters}.
+	 
+	  * @param {Integer} new characters count.
+     *
+     */
+
+    createMultipleCharacters: function(count) {
+
+        for (var characterIndex = 1; characterIndex <= count; characterIndex++) {
+            var characterData = this.getStarWarsCharacter(characterIndex);
+            this.createCharacterRecord(characterData);
+        }
+    },
+
+    type: 'swCharacterUtility'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-16 10:41:43</sys_created_on>
+        <sys_id>1c539b5e2f119110b2ab3f96f699b6ba</sys_id>
+        <sys_mod_count>38</sys_mod_count>
+        <sys_name>swCharacterUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_1c539b5e2f119110b2ab3f96f699b6ba</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-17 14:22:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

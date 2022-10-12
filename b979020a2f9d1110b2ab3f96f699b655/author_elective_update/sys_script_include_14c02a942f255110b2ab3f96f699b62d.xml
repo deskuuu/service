@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.incidentClientWidget</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>incidentClientWidget</name>
+        <script><![CDATA[var incidentClientWidget = Class.create();
+incidentClientWidget.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	updateIncident: function(indicentNumber, properties) {
+       
+    },
+	
+    type: 'incidentClientWidget'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-22 11:54:13</sys_created_on>
+        <sys_id>14c02a942f255110b2ab3f96f699b62d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>incidentClientWidget</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_14c02a942f255110b2ab3f96f699b62d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-22 11:54:13</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</application>
+        <file_path/>
+        <instance_id>ea74b21ddb9f0c943050ac44d49619a5</instance_id>
+        <instance_name>dev101878</instance_name>
+        <name>sys_script_include_14c02a942f255110b2ab3f96f699b62d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_847697_serviceno.incidentClientWidget&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;incidentClientWidget&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var incidentClientWidget = Class.create();
+incidentClientWidget.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	updateIncident: function(indicentNumber, properties) {
+       
+    },
+	
+    type: 'incidentClientWidget'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-08-22 11:54:13&lt;/sys_created_on&gt;&lt;sys_id&gt;14c02a942f255110b2ab3f96f699b62d&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;incidentClientWidget&lt;/sys_name&gt;&lt;sys_package display_value="ServiceNowTasks" source="x_847697_serviceno"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="ServiceNowTasks"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_14c02a942f255110b2ab3f96f699b62d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-08-22 11:54:13&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1789298464</payload_hash>
+        <record_name>incidentClientWidget</record_name>
+        <reverted_from/>
+        <source>b258d29b2fd55510b2ab3f96f699b6f6</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-22 11:54:13</sys_created_on>
+        <sys_id>51e1a2942f255110b2ab3f96f699b698</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182c5673b8d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-22 11:54:13</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>99e1a2945c25511091baae684e54ee97</update_guid>
+        <update_guid_history>99e1a2945c25511091baae684e54ee97:1789298464</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-22 11:57:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>1dabb5ac4667457e886d26c74b24be09</sys_id>
+        <sys_metadata>14c02a942f255110b2ab3f96f699b62d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>incidentClientWidget</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_scope_delete display_value="">c6f584af7b4b4086a7fdb8223c164a64</sys_scope_delete>
+        <sys_update_name>sys_script_include_14c02a942f255110b2ab3f96f699b62d</sys_update_name>
+        <sys_update_version display_value="sys_script_include_14c02a942f255110b2ab3f96f699b62d">51e1a2942f255110b2ab3f96f699b698</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-22 11:57:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

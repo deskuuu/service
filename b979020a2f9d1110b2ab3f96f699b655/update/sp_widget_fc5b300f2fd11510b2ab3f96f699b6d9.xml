@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function TimeCtrl($scope, $timeout) {
+    $scope.clock = "loading clock..."; // initialise the time variable
+    $scope.tickInterval = 1000 //ms
+
+    var tick = function() {
+        $scope.clock = Date.now() // get the current time
+        $timeout(tick, $scope.tickInterval); // reset the timer
+    }
+
+    // Start the timer
+    $timeout(tick, $scope.tickInterval);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>div {
+  color: white;
+   text-align: center;
+  padding: 35px;
+   border: 5px solid red;
+  font-size: 1.7em;
+  width: 330px;
+  height: 150px;
+ background-image: url("data:image/jpeg;base64,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");
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data>{"options": 
+	{
+		"zone": "America/Los_Angeles",
+		"title": "San Diego, CA",
+		"c_color": "blue"
+	}
+}</demo_data>
+        <description/>
+        <docs/>
+        <field_list>title</field_list>
+        <has_preview>true</has_preview>
+        <id>custom_clock</id>
+        <internal>false</internal>
+        <link><![CDATA[function (scope, $element, attrs) {
+	var element = $element[0];
+	cacheElementSize(scope, element);
+	$(window).on('resize', onWindowResize);
+	// run after layout
+	setTimeout(onWindowResize, 5);
+	
+	function cacheElementSize(scope, element) {
+		var elem = scope.elem = {}
+		elem.w = element.offsetWidth;
+		elem.h = element.offsetHeight;
+		return elem;
+	}
+
+	function onWindowResize() {
+		var elem = scope.elem;
+		var isSizeChanged = elem.w != element.offsetWidth || elem.h != element.offsetHeight;
+		if (isSizeChanged) {
+			elem = cacheElementSize(scope, element);
+			// to stay square, the child width has to be
+			// min of height, width
+			var w = Math.min(elem.h, elem.w);
+			var clock = element.firstChild;
+			clock.style.width = w + "px";
+		}
+	}	
+}]]></link>
+        <name>custom clock</name>
+        <option_schema>[{"name":"zone","default_value":"America/Los_Angeles","section":"Data","label":"TimeZone","type":"string"},{"name":"c_color","default_value":"red","section":"Presentation","label":"Second hand color","type":"string"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script/>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-18 07:13:41</sys_created_on>
+        <sys_id>fc5b300f2fd11510b2ab3f96f699b6d9</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>custom clock</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sp_widget_fc5b300f2fd11510b2ab3f96f699b6d9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-19 08:34:05</sys_updated_on>
+        <template><![CDATA[<div ng-controller='TimeCtrl'><p>{{ clock  | date:'medium'}}</p></div>]]></template>
+    </sp_widget>
+</record_update>

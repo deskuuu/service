@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="DELETE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_847697_serviceno.ciPriceTrack</name>
+        <script><![CDATA[ var configItemUtility = new new GlideAjax('configurationIteamClientUtility');
+    var configurationItem = 'PC';
+
+    configItemUtility.addParam('sysparm_name', 'getConfiguratonIteamPriceData');
+    configItemUtility.addParam('sysparm_configurationItem', configurationItem);
+    configItemUtility.getXMLAnswer(
+        function(answer) {
+            if (answer) {
+                var data = JSON.parse(answer);
+				alert(data);
+            }
+        }
+    );]]></script>
+        <script_name>ciPriceTrack</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-19 14:44:52</sys_created_on>
+        <sys_id>71e41f592f861110b2ab3f96f699b606</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_847697_serviceno.ciPriceTrack</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_ui_script_71e41f592f861110b2ab3f96f699b606</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-20 07:01:20</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</application>
+        <file_path/>
+        <instance_id>ea74b21ddb9f0c943050ac44d49619a5</instance_id>
+        <instance_name>dev101878</instance_name>
+        <name>sys_ui_script_71e41f592f861110b2ab3f96f699b606</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_script"&gt;&lt;sys_ui_script action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;description/&gt;&lt;global&gt;false&lt;/global&gt;&lt;ignore_in_now_experience&gt;false&lt;/ignore_in_now_experience&gt;&lt;name&gt;x_847697_serviceno.ciPriceTrack&lt;/name&gt;&lt;script&gt;&lt;![CDATA[ var configItemUtility = new new GlideAjax('configurationIteamClientUtility');
+    var configurationItem = 'PC';
+
+    configItemUtility.addParam('sysparm_name', 'getConfiguratonIteamPriceData');
+    configItemUtility.addParam('sysparm_configurationItem', configurationItem);
+    configItemUtility.getXMLAnswer(
+        function(answer) {
+            if (answer) {
+                var data = JSON.parse(answer);
+				alert(data);
+            }
+        }
+    );]]&gt;&lt;/script&gt;&lt;script_name&gt;ciPriceTrack&lt;/script_name&gt;&lt;sys_class_name&gt;sys_ui_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-09-19 14:44:52&lt;/sys_created_on&gt;&lt;sys_id&gt;71e41f592f861110b2ab3f96f699b606&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;x_847697_serviceno.ciPriceTrack&lt;/sys_name&gt;&lt;sys_package display_value="ServiceNowTasks" source="x_847697_serviceno"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="ServiceNowTasks"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_script_71e41f592f861110b2ab3f96f699b606&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-09-20 07:01:20&lt;/sys_updated_on&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;use_scoped_format&gt;false&lt;/use_scoped_format&gt;&lt;/sys_ui_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-281450324</payload_hash>
+        <record_name>x_847697_serviceno.ciPriceTrack</record_name>
+        <reverted_from/>
+        <source>d7263fc72f659110b2ab3f96f699b6ed</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-20 07:01:21</sys_created_on>
+        <sys_id>0af4ba6d2f825110b2ab3f96f699b682</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18359b3868a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-20 07:01:21</sys_updated_on>
+        <type>UI Script</type>
+        <update_guid>42f4ba6d73825110126803d805271282</update_guid>
+        <update_guid_history>42f4ba6d73825110126803d805271282:-281450324,d2759795ec86111039529455a4f0217a:2098892253</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-20 08:34:22</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_script">sys_ui_script</sys_db_object>
+        <sys_id>8ef10878878b4a80809e72c292709ea1</sys_id>
+        <sys_metadata>71e41f592f861110b2ab3f96f699b606</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_847697_serviceno.ciPriceTrack</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_scope_delete display_value="">c6f584af7b4b4086a7fdb8223c164a64</sys_scope_delete>
+        <sys_update_name>sys_ui_script_71e41f592f861110b2ab3f96f699b606</sys_update_name>
+        <sys_update_version display_value="sys_ui_script_71e41f592f861110b2ab3f96f699b606">0af4ba6d2f825110b2ab3f96f699b682</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-20 08:34:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

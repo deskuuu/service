@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn">
+    <sys_rest_message_fn action="DELETE">
+        <authentication_type>inherit_from_parent</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile display_value="desi">2879fb272fd99510b2ab3f96f699b62b</basic_auth_profile>
+        <basic_auth_user/>
+        <content>{&#13;
+"category" : "${category}",&#13;
+"number" : "${number}"&#13;
+}</content>
+        <function_name>Incident Update</function_name>
+        <http_method>post</http_method>
+        <lock>false</lock>
+        <oauth2_profile/>
+        <protocol_name/>
+        <qualified_name>Incident Integration [ Incident Update ]</qualified_name>
+        <rest_endpoint>https://dev128698.service-now.com/api/now/table/incident_integration</rest_endpoint>
+        <rest_message display_value="Incident Integration">281977272fd99510b2ab3f96f699b6f8</rest_message>
+        <sys_class_name>sys_rest_message_fn</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-08 06:27:05</sys_created_on>
+        <sys_id>f6b734bd2fb15110b2ab3f96f699b662</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Incident Update</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_rest_message_fn_f6b734bd2fb15110b2ab3f96f699b662</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-08 06:34:00</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message_fn>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</application>
+        <file_path/>
+        <instance_id>ea74b21ddb9f0c943050ac44d49619a5</instance_id>
+        <instance_name>dev101878</instance_name>
+        <name>sys_rest_message_fn_f6b734bd2fb15110b2ab3f96f699b662</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn"><sys_rest_message_fn action="INSERT_OR_UPDATE"><authentication_type>inherit_from_parent</authentication_type><basic_auth_password/><basic_auth_profile display_value="desi">2879fb272fd99510b2ab3f96f699b62b</basic_auth_profile><basic_auth_user/><content>{&#13;
+"category" : "${category}",&#13;
+"number" : "${number}"&#13;
+}</content><function_name>Incident Update</function_name><http_method>post</http_method><lock>false</lock><oauth2_profile/><protocol_name/><qualified_name>Incident Integration [ Incident Update ]</qualified_name><rest_endpoint>https://dev128698.service-now.com/api/now/table/incident_integration</rest_endpoint><rest_message display_value="Incident Integration">281977272fd99510b2ab3f96f699b6f8</rest_message><sys_class_name>sys_rest_message_fn</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2022-09-08 06:27:05</sys_created_on><sys_id>f6b734bd2fb15110b2ab3f96f699b662</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Incident Update</sys_name><sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package><sys_policy/><sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope><sys_update_name>sys_rest_message_fn_f6b734bd2fb15110b2ab3f96f699b662</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2022-09-08 06:34:00</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mid_server/><use_mutual_auth>false</use_mutual_auth></sys_rest_message_fn></record_update>]]></payload>
+        <payload_hash>1988491030</payload_hash>
+        <record_name>Incident Update</record_name>
+        <reverted_from/>
+        <source>05a5f7da2fd19110b2ab3f96f699b6d7</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-08 06:34:01</sys_created_on>
+        <sys_id>acab7cf12ff15110b2ab3f96f699b61d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1831bce2fa50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-08 06:34:01</sys_updated_on>
+        <type>HTTP Method</type>
+        <update_guid>e4ab7cf18af151105314f7d42e75031d</update_guid>
+        <update_guid_history>e4ab7cf18af151105314f7d42e75031d:1988491030,687af471a7f1511068f29cbd88b157b7:-550814912,1d1afcbddcb15110f863c879e327caca:938890764,c30af43163f15110c4281c4ca00ee2fd:243558106</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-08 07:01:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_rest_message_fn">sys_rest_message_fn</sys_db_object>
+        <sys_id>4dbd5fa75d9d44b09aee8f0ccdad1510</sys_id>
+        <sys_metadata>f6b734bd2fb15110b2ab3f96f699b662</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Incident Update</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_parent display_value="Incident Integration">281977272fd99510b2ab3f96f699b6f8</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_scope_delete display_value="">c6f584af7b4b4086a7fdb8223c164a64</sys_scope_delete>
+        <sys_update_name>sys_rest_message_fn_f6b734bd2fb15110b2ab3f96f699b662</sys_update_name>
+        <sys_update_version display_value="sys_rest_message_fn_f6b734bd2fb15110b2ab3f96f699b662">acab7cf12ff15110b2ab3f96f699b61d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-08 07:01:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

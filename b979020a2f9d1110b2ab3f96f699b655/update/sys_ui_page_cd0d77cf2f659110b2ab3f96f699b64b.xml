@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function test() {
+    var configItemUtility = new GlideAjax('configurationIteamClientUtility');
+    var configurationItem = 'PC';
+
+    configItemUtility.addParam('sysparm_name', 'getConfiguratonIteamPriceData');
+    configItemUtility.addParam('sysparm_configurationItem', configurationItem);
+    configItemUtility.getXMLAnswer(
+        function(answer) {
+            if (answer) {
+                var parsed = JSON.parse(answer);
+                var ctx = document.getElementById('myChart').getContext('2d');
+
+                var prices = parsed.prices;
+                var labels = parsed.dates;
+                var ciName = 'PC';
+
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Price track of ' + ciName,
+                            data: prices,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+            }
+        });
+}]]></client_script>
+        <description>Imagine the scenario the client wants to track the price of a configuration item (which let's say that changes every day). He wants a chart in order to have a good view.&#13;
+• Create a field in the Configuration Item[cmdb_ci] table. "Price", type "currency"&#13;
+• Create a field in the Configuration item[cmdb_ci] table. "Price track", type "String", max length of let's say 10 000 000 characters, it will be a hidden field anyway.&#13;
+• Research for the JavaScript library "Chart.js". Look at ServiceNow BG Team chat files for the ServiceNow - Custom UI page Documentation By Rusev.&#13;
+• Implement the Chart.js library so it displays how the price have changed from the date of creation of the Configuration Item[cmdb_ci] until today's date.</description>
+        <direct>false</direct>
+        <endpoint>x_847697_serviceno_TrackCIPrice.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+ <g:dialog_button onClick='test()' type='button'>Click</g:dialog_button>
+
+    <div class="container">
+        <div class="row">
+            <h1>Configuration iteam price track</h1>
+        </div>
+     	<div class="row">
+            <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+</j:jelly>]]></html>
+        <name>TrackCIPrice</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-31 07:36:21</sys_created_on>
+        <sys_id>cd0d77cf2f659110b2ab3f96f699b64b</sys_id>
+        <sys_mod_count>130</sys_mod_count>
+        <sys_name>TrackCIPrice</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_ui_page_cd0d77cf2f659110b2ab3f96f699b64b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-20 08:54:01</sys_updated_on>
+    </sys_ui_page>
+</record_update>

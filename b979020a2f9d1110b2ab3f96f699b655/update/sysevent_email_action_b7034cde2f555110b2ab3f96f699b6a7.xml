@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_email_action">
+    <sysevent_email_action action="INSERT_OR_UPDATE">
+        <action_insert>false</action_insert>
+        <action_update>true</action_update>
+        <active>true</active>
+        <advanced_condition/>
+        <affected_field_on_event/>
+        <category display_value="Uncategorized" name="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
+        <collection>incident</collection>
+        <condition table="incident">stateCHANGESTO6^ORstateCHANGESTO7^EQ<item display_value="Resolved" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="6"/>
+            <item display_value="Closed" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="true" value="7"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <content_type>text/html</content_type>
+        <default_interval/>
+        <description/>
+        <digest_from/>
+        <digest_html/>
+        <digest_reply_to/>
+        <digest_separator_html><![CDATA[<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>]]></digest_separator_html>
+        <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
+        <digest_subject/>
+        <digest_template/>
+        <digest_text/>
+        <digestable>false</digestable>
+        <event_name>activate.life.cycle.migration</event_name>
+        <event_parm_1>false</event_parm_1>
+        <event_parm_2>false</event_parm_2>
+        <exclude_delegates>false</exclude_delegates>
+        <force_delivery>false</force_delivery>
+        <from/>
+        <generation_type>engine</generation_type>
+        <importance/>
+        <include_attachments>false</include_attachments>
+        <item>event.parm1</item>
+        <item_table/>
+        <mandatory>false</mandatory>
+        <message/>
+        <message_html><![CDATA[<!--<p>Short description: ${short_description}</p>
+<p>Category: ${category}</p>
+<p>Priority: ${priority}</p>
+<p>${mail_script:incidentVerifyChild}</p> -->
+<div class="header" style="padding: 18px; text-align: center; background: #1abc9c; color: white; font-size: 16px;">
+<h1>Hello ${caller_id}</h1>
+<p>Incident number ${number} is now RESOLVED!</p>
+</div>
+<div class="info" style="background-color: #e7f3fe; border-left: 6px solid #2196F3; margin-bottom: 15px; padding: 4px 12px;">
+<p><strong>Priority:</strong> ${priority}</p>
+</div>
+<div class="success" style="background-color: #ddffdd; border-left: 6px solid #04AA6D; margin-bottom: 15px; padding: 4px 12px;">
+<p><strong>Short Description:</strong>${short_description}</p>
+</div>
+<div class="warning" style="background-color: #ffffcc; border-left: 6px solid #ffeb3b; padding: 4px 12px;">
+<p><strong>Category: </strong> ${category}</p>
+</div>
+<p>${mail_script:incidentVerifyChild}</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>Incident Resolved Notification</name>
+        <omit_watermark>false</omit_watermark>
+        <order>100</order>
+        <push_message_only>false</push_message_only>
+        <recipient_fields>caller_id</recipient_fields>
+        <recipient_groups/>
+        <recipient_users/>
+        <reply_to/>
+        <send_self>true</send_self>
+        <sms_alternate/>
+        <style/>
+        <subject>Incident number ${number} is now resolved.</subject>
+        <subscribable>false</subscribable>
+        <sys_class_name>sysevent_email_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 19:13:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b7034cde2f555110b2ab3f96f699b6a7</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Incident Resolved Notification</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sysevent_email_action_b7034cde2f555110b2ab3f96f699b6a7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-21 12:21:22</sys_updated_on>
+        <sys_version>2</sys_version>
+        <template display_value="Unsubscribe and Preferences">7ed0481f3b0b2200c869c2c703efc487</template>
+        <type>email</type>
+        <weight>0</weight>
+    </sysevent_email_action>
+</record_update>

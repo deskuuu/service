@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.incidentStatistic</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Create a scheduled job that runs daily at 3AM. It should look for all [Incident] records with State "In progress" and log the number of the found incidents. Then log the number of incidents with State "In progress" and Assigned To empty. Then on new row log each found incident in the format: "{INCXXXXXXX} – {incident short description}".</description>
+        <name>incidentStatistic</name>
+        <script><![CDATA[var incidentStatistic = Class.create();
+incidentStatistic.prototype = {
+
+    getIncidentsByLabels: function(incidentLabels) {
+        var queriedIncidentsWithDescription = [];
+        var fieldsArr = Object.keys(incidentLabels);
+
+        var incidentsGR = new GlideRecord("incident");
+        fieldsArr.forEach(function(field) {
+            incidentsGR.addQuery(field, incidentLabels[field]);
+        });
+
+        incidentsGR.query();
+        while (incidentsGR.next()) {
+            queriedIncidentsWithDescription.push(incidentsGR.getValue('number') + ' -' + incidentsGR.getValue('short_description'));
+        }
+
+        return queriedIncidentsWithDescription;
+    },
+
+    type: 'incidentStatistic'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 19:29:59</sys_created_on>
+        <sys_id>5546c4162f955110b2ab3f96f699b6a4</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>incidentStatistic</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_5546c4162f955110b2ab3f96f699b6a4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-30 09:26:01</sys_updated_on>
+    </sys_script_include>
+</record_update>

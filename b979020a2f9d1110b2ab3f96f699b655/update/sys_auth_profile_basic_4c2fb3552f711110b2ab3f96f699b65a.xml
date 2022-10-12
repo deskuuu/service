@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_auth_profile_basic">
+    <sys_auth_profile_basic action="INSERT_OR_UPDATE">
+        <name>des</name>
+        <password>﷞﷟﷒ff6db58d2f051110b2ab3f96f699b6c3﷬﷔1﷬﷭d5J_7Onn3YmpRO_MnzVkXg==Kd9etsvkmXKfEJQYZIUvE0XHf-oiBg==﷮﷯</password>
+        <sys_class_name>sys_auth_profile_basic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-07 07:31:27</sys_created_on>
+        <sys_id>4c2fb3552f711110b2ab3f96f699b65a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>des</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_auth_profile_basic_4c2fb3552f711110b2ab3f96f699b65a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-07 07:31:27</sys_updated_on>
+        <username>des</username>
+    </sys_auth_profile_basic>
+</record_update>

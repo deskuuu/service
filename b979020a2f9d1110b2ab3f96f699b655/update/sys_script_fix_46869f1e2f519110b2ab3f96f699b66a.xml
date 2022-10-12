@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Create multiple persons and add the records in the SW Characters table.&#13;
+For the purpose of the excercise, the count wil be 10;</description>
+        <name>createCharacters</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[(function greateMultipleCharacters(count) {
+
+    var characters = new swCharacterUtility();
+   // var count = 10;
+
+    characters.createMultipleCharacters(count);
+})(10);]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-16 10:42:24</sys_created_on>
+        <sys_id>46869f1e2f519110b2ab3f96f699b66a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>createCharacters</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_fix_46869f1e2f519110b2ab3f96f699b66a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-17 07:20:21</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

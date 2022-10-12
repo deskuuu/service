@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message">
+    <sys_rest_message action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <authentication_type>basic</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile display_value="desi">2879fb272fd99510b2ab3f96f699b62b</basic_auth_profile>
+        <basic_auth_user/>
+        <description>Create REST Message, which will create [Incident] records in your instance (if you want you can create another instance and create the records inside it). Set up an authentication account with specific roles in order to be able to create the records, you can use the REST API Explorer module to test out the Table API. After the REST Message is configured, create a function that will take as input Short Description, Caller, Category and will use the REST Message to create new incident records in the targeted instance. *Be aware that the Caller field is a reference, so you will need sys_id of a user. Think of a way to retrieve it.*. You can put that function in a Fix Script. Call the function several times with different values. Run the fix script.</description>
+        <name>Incident Integration</name>
+        <oauth2_profile display_value="Auth0 default_profile">a836266453001300696c4956a11c0861</oauth2_profile>
+        <protocol_name/>
+        <rest_endpoint>https://dev94281.service-now.com/api/now/table/incident</rest_endpoint>
+        <sys_class_name>sys_rest_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-20 10:21:41</sys_created_on>
+        <sys_id>281977272fd99510b2ab3f96f699b6f8</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Incident Integration</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_rest_message_281977272fd99510b2ab3f96f699b6f8</sys_update_name>
+        <sys_updated_by>desi.oauth</sys_updated_by>
+        <sys_updated_on>2022-10-04 06:51:45</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message>
+</record_update>

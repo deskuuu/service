@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element defaultsort="-1" dynamic_creation_script="// default on the table level is to create a server&#13;&#10;&#13;&#10;var gr = new GlideRecord(&quot;cmdb_ci_server&quot;);&#13;&#10;gr.initialize();&#13;&#10;gr.name=value;&#13;&#10;gr.insert();" extends="cmdb" label="Configuration Item" max_length="40" name="cmdb_ci" sizeclass="2788" type="collection">
+        <element attributes="omit_sys_original=true" label="Price" max_length="20" name="x_847697_serviceno_u_price" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" label="Price track" max_length="10000000" name="x_847697_serviceno_u_price_track" read_only="true" type="string"/>
+    </element>
+</database>

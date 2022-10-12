@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope,spUtil,$http,$timeout,$rootScope) {
+  /* widget controller */
+  var c = this;
+	var incidentNumberOld = document.getElementById('number').value;
+	 var incidentPriorityOld = document.getElementById('priority').value;
+// global func called from another widget "testt"
+	// return the clicked incident as obj{number, caller, category, priority, assignmentGroup, shortDescription}
+$rootScope.$on('getIncident', function(event,obj) {
+	 //alert(obj);
+		c.number = obj.action.number;
+		c.caller = obj.action.caller;
+		c.category = obj.action.category;
+		c.priority = obj.action.priority;
+		c.assignmentGroup = obj.action.assignmentGroup;
+		c.shortDescription = obj.action.shortDescription;
+	
+	incidentNumberOld = c.number;
+ incidentPriorityOld = c.priority;
+		//$scope.data.item = obj.action.number;
+	});
+
+	
+	
+	
+	// This is the confirmAsset method on your controller
+this.updateIncidentRecord = function() {
+    // Asset is being bassed from the ng-click
+    // The controller has a server property with a method called get on it.
+    // The object you pass to the get() call is passed as "input" on the server-side code.
+	// these two cannot be changed!
+		 var incidentNumberNew = document.getElementById('number').value;
+		 var incidentPriorityNew = document.getElementById('priority').value;
+		
+     if(incidentNumberOld != incidentNumberNew){
+			   spUtil.addErrorMessage('You cannot change the Number of an Incident!');
+			 //return;
+		 }else if(incidentPriorityOld != incidentPriorityNew){
+			    spUtil.addErrorMessage('You cannot change the Priority of an Incident!');
+			// return;
+		 }else{
+			  this.server.get({
+        // NOTE: This method property is totally unneeded technically.
+        //  I am adding it here so that my server-side code can know exactly what it's supposed to do.
+        method: "updateIncidentRecord",
+        incidentNumber: c.number,
+			  incidentCaller: document.getElementById('caller').value,
+			  incidentCategory: document.getElementById('category').value,
+			  incidentAssignmentGroup: document.getElementById('assignmentGroup').value,
+	      incidentShortDescription: document.getElementById('shortDescription').value
+    });
+		 }
+
+	//document.getElementById('number').value = '';
+	//document.getElementById('caller').value = '';
+	//document.getElementById('category').value ='';
+	//document.getElementById('priority').value = '';
+	//document.getElementById('assignmentGroup').value = '';
+	//document.getElementById('shortDescription').value = '';
+}//
+	//	document.getElementById('shortDescription').value = '';
+	 
+	/* c.updateIncidentRecord = function(){
+
+		c.data.incidentCaller = document.getElementById('caller').value;
+		 c.data.incidentCategory = document.getElementById('category').value;
+		 c.data.incidentAssignmentGroup = document.getElementById('assignmentGroup').value;
+		 c.data.incidentShortDescription = document.getElementById('shortDescription').value;
+		
+		// these two cannot be changed!
+		 var incidentNumberNew = document.getElementById('number').value;
+		 var incidentPriorityNew = document.getElementById('priority').value;
+		
+     if(incidentNumberOld != incidentNumberNew){
+			   spUtil.addErrorMessage('You cannot change the Number of an Incident!');
+			 return;
+		 }
+		
+		if(incidentPriorityOld != incidentPriorityNew){
+			    spUtil.addErrorMessage('You cannot change the Priority of an Incident!');
+			 return;
+		 }
+	};*/
+	
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.result-container {
+ margin-top: 10px;
+}
+
+</css>
+        <data_table>sp_instance_vlist</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>table,filter,maximum_entries,display_field,color,size,glyph,sp_page</field_list>
+        <has_preview>true</has_preview>
+        <id>show_data</id>
+        <internal>false</internal>
+        <link><![CDATA[function (scope, element, attrs, controller) {
+   var c = scope.c;
+	
+   
+}
+//angular.element('input').css('background-color', '#4CAF50');]]></link>
+        <name>show data</name>
+        <option_schema>[{"name":"always_show","section":"Behavior","label":"Show even when empty","type":"boolean"},{"name":"panel_body_height","section":"Presentation","label":"List body height","type":"string"},{"name":"image_field","section":"Presentation","label":"Image field","type":"field_name"},{"name":"secondary_fields","section":"Data","label":"Secondary fields","type":"field_list"},{"name":"rounded_images","section":"Presentation","label":"Rounded images","type":"boolean"},{"displayValue":"Page","name":"list_page","section":"Data","label":"List page","type":"reference","value":"sp_page","ed":{"reference":"sp_page"}},{"name":"hide_footer","section":"Presentation","label":"Hide Footer","type":"boolean"},{"displayValue":"UI View","hint":"View to use when target page is a form","name":"view","section":"Behavior","label":"View","type":"reference","value":"sys_ui_view","ed":{"reference":"sys_ui_view"}},{"hint":"If checked, Simple List will not automatically updated based on changes to the filtered records","name":"disable_record_watcher","section":"Behavior","label":"Disable record watcher","type":"boolean"},{"name":"filter_acls","section":"Data","default_value":"false","label":"Enforce field-level Read ACLs on Filter query terms (may alter the query for unprivileged users)","type":"boolean"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	var incidentWidgetUtility = new incidentWidget();
+
+	if (input) {
+    // Adding a method here just in case anything else sends information to the
+    // client side script, we can distinguish and only handle what we need to.
+    if (input.method === "updateIncidentRecord") {
+			incidentWidgetUtility.updateIncidentRecord(input.incidentNumber, input.incidentCaller,  input.incidentCategory,  input.incidentAssignmentGroup,  input.incidentShortDescription);
+		}
+	}
+	
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-19 12:35:55</sys_created_on>
+        <sys_id>3aae07db2f995510b2ab3f96f699b6c6</sys_id>
+        <sys_mod_count>136</sys_mod_count>
+        <sys_name>show data</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sp_widget_3aae07db2f995510b2ab3f96f699b6c6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-12 08:27:27</sys_updated_on>
+        <template><![CDATA[ <!--<div class="panel panel-primary">
+<div class="panel-heading">Incidents</div>
+  <div class="panel-body">
+   <ul class="list-group result-container">
+     <li class="list-group-item" ng-repeat="item in c.data.items">
+       <strong>Number:  <strong><a href>{{item.number}}</a><br>
+       <strong>Caller: </strong><span class="pull-right">{{item.caller}}</span><br>
+       <strong>Category: </strong><span class="pull-right">{{item.category}}</span><br>
+          <strong>Priority: </strong><span class="pull-right">{{item.priority}}</span><br>
+          <strong>Assignment group: </strong><span class="pull-right">{{item.assignmentGroup}}</span><br>
+    <strong>Short description: </strong><span class="pull-right">{{item.shortDescription}}</span><br>
+         </li>
+   </ul>
+ </div> -->
+  
+<div class="panel panel-primary">
+ <div class="panel-heading">Incidents</div>
+  <form class="panel-body">
+    <div class="list-group result-container">
+      <div class="list-group-item">
+  <label for="number">Number:</label>
+  <input class="pull-right form-control" type="text" id="number" name="number" value="{{c.number}}"><br><br>
+  <label for="caller">Caller:</label>
+  <input class="pull-right" type="text" id="caller" name="caller" value="{{c.caller}}"><br><br>
+        <label for="category">Category: </label>
+  <input class="pull-right" type="text" id="category" name="category" value="{{c.category}}">
+         <!-- <sn-record-picker field="c.category" table="'incident'" display-field="'category'" value-field="'sys_id'" search-fields="'category'" page-size="100" on-change="c.getCategory()"></sn-record-picker>--><br><br>
+        <label for="priority">Priority:</label>
+  <input class="pull-right" type="text" id="priority" name="priority" value="{{c.priority}}"><br><br>
+        
+        <label for="category">Assignment group:</label>
+  <input class="pull-right" type="text" id="assignmentGroup" name="assignmentGroup" value="{{c.assignmentGroup}}"><br><br>
+       
+        <label for="category">Short description:</label>
+  <input class="pull-right" type="text" id="shortDescription" name="shortDescription" value="{{c.shortDescription}}"><br><br>
+      
+        <input type="submit" ng-click="c.updateIncidentRecord()" onclick="preventDefault(event)" value="Submit">
+            </div>
+          </div>
+</form>
+</div>
+<script>
+function preventDefault(event){
+  event.preventDefault();
+}
+</script>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="e49bb0c62f0a9110b2ab3f96f699b669" sys_domain="global" table="cmdb_ci" version="3" view="test">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>d1bbbc4a2f0a9110b2ab3f96f699b6f6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>manufacturer</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>55bbbc4a2f0a9110b2ab3f96f699b6f6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>asset_tag</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>d5bbbc4a2f0a9110b2ab3f96f699b6f6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assigned_to</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>59bbbc4a2f0a9110b2ab3f96f699b6f6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>category</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>d9bbbc4a2f0a9110b2ab3f96f699b6f6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>fault_count</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>5dbbbc4a2f0a9110b2ab3f96f699b6f6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>install_date</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>d1bb708a2f0a9110b2ab3f96f699b61a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>install_status</element>
+            <position>7</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>55bb708a2f0a9110b2ab3f96f699b61a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>company</element>
+            <position>8</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>d5bb708a2f0a9110b2ab3f96f699b61a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>location</element>
+            <position>9</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:28:31</sys_created_on>
+            <sys_id>59bb708a2f0a9110b2ab3f96f699b61a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="cmdb_ci" sys_domain="global" view="549bb0c62f0a9110b2ab3f96f699b663">e49bb0c62f0a9110b2ab3f96f699b669</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:28:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>cmdb_ci</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-21 11:27:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e49bb0c62f0a9110b2ab3f96f699b669</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>cmdb_ci</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+            <sys_update_name>sys_ui_section_e49bb0c62f0a9110b2ab3f96f699b669</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-21 11:27:54</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="test" name="test">549bb0c62f0a9110b2ab3f96f699b663</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

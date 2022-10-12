@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_web_service">
+    <sys_web_service action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <function_name>execute</function_name>
+        <name>inc integration</name>
+        <scoped_name>x_847697_serviceno_inc integration</scoped_name>
+        <script><![CDATA[(function scriptedWebServiceOperation(request, response) {
+
+	// Add your code here
+
+})(request, response);]]></script>
+        <short_description/>
+        <sys_class_name>sys_web_service</sys_class_name>
+        <sys_created_by>desi.oauth</sys_created_by>
+        <sys_created_on>2022-09-02 08:24:55</sys_created_on>
+        <sys_id>5dcadaff2fe91510b2ab3f96f699b647</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>inc integration</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_web_service_5dcadaff2fe91510b2ab3f96f699b647</sys_update_name>
+        <sys_updated_by>desi.oauth</sys_updated_by>
+        <sys_updated_on>2022-09-02 08:24:55</sys_updated_on>
+        <wsdl>https://dev101878.service-now.com/x_847697_serviceno_inc integration.do?WSDL</wsdl>
+        <wsdl_compliance>false</wsdl_compliance>
+    </sys_web_service>
+</record_update>

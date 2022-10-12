@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>When a user tries to edit the Short description of an [Incident] record (which has Priority – 1 and related Affected CI) from the list view, prevent the update and alert message "You cannot edit the short description from the list view!"</description>
+        <field>short_description</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Incident Prevent Update</name>
+        <order/>
+        <script><![CDATA[function onCellEdit(sysIDs, table, oldValues, newValue, callback) {
+    var saveAndClose = true;
+
+    for (var index = 0; index < sysIDs.length; index++) {
+        var shortDescriptionID = sysIDs[index];
+
+        var incidentGA = new GlideAjax('incidentClientUtility');
+        incidentGA.addParam('sysparm_name', 'validateCellEdit');
+        incidentGA.addParam('sysparm_shortDescriptionID', shortDescriptionID);
+
+        incidentGA.getXMLAnswer(updateField);
+    }
+
+    function updateField(answer) {
+        if (answer === "true") {
+            alert("You cannot edit the short description from the list view!");
+            callback(false);
+            //saveAndClose = true;
+        } else {
+            //	saveAndClose = false;
+            callback(true);
+        }
+        //	callback(saveAndClose);
+    }
+
+    //     var incidentGA = new GlideAjax('incidentClientUtility');
+    //     incidentGA.addParam('sysparm_name', 'checkForRelatedCIs');
+    //     incidentGA.addParam('sysparm_incidentParentSysID', incidentSysID);
+    //     incidentGA.getXMLAnswer(hasChild);
+
+    //     function hasChild(answer) {
+    //         alert(answer);
+    //         if (answer == 'true') {
+    //             alert('You cannot edit the short description from the list view!');
+    //             return false;
+    //         } else {
+    //             callback(saveAndClose);
+    //         }
+    //     }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 14:26:07</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d9b08f862f915110b2ab3f96f699b648</sys_id>
+        <sys_mod_count>45</sys_mod_count>
+        <sys_name>Incident Prevent Update</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_client_d9b08f862f915110b2ab3f96f699b648</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-30 08:35:20</sys_updated_on>
+        <table>incident</table>
+        <type>onCellEdit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

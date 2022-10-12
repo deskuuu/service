@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.emailUtility</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>When an [Incident] record gets Resolved/Closed, send an email to the Caller user. Subject: "{Incident number INCXXXXXX} is now resolved.". The email body should contain the Short Description, Category and Priority. Check if the [Incident] record is a parent of other [Incident] records. If so, add in CC (carbon copy – email recipients) all the other Caller users from each child [Incident] record, add to the email body "This incident is parent of {number of child incidents} incidents". Then on a new row add each incident number with its short description like this – "{INCXXXXXX} – {incident short description here}"&#13;
+"{INCXXXXXX} – {incident short description here}"&#13;
+…&#13;
+If the [Incident] record does not have any child [Incident] records, add the following row "This incident is not parent of any child incidents"</description>
+        <name>emailUtility</name>
+        <script><![CDATA[var emailUtility = Class.create();
+emailUtility.prototype = {
+
+    /**
+    * This function gets data for all of an Incident child based on the paramters received (parentIncident) and returns the {obj} data for child.
+    * 
+    * @param            {parentIncident}         sys_id                    contains the sys_id of the parent Incident.
+
+    * @returns          {obj}                    objResult                 data for all of the child.
+    */
+
+    getIncidentChildData: function(parentIncident) {
+        var incidentChildGR = new GlideRecord('incident');
+        incidentChildGR.addQuery('parent_incident', parentIncident);
+        incidentChildGR.query();
+        // [{incident:''},{}]
+        //         var numbers = [],
+        //             callers = [],
+        //             userNames = [],
+        //             descriptions = [];
+
+        //         while (incidentChildGR.next()) {
+        //             numbers.push(incidentChildGR.getDisplayValue('number'));
+        //             callers.push(incidentChildGR.getValue('caller_id'));
+        //             userNames.push(incidentChildGR.getDisplayValue('caller_id'));
+        //             descriptions.push(incidentChildGR.getDisplayValue('short_description'));
+        //         }
+
+        //         var objResult = {
+        //             childNumbers: numbers,
+        //             childCallers: callers,
+        //             childuserNames: userNames,
+        //             childDescriptions: descriptions
+        //         };
+
+        //         return JSON.stringify(objResult);
+        var data = [];
+
+        while (incidentChildGR.next()) {
+            data.push({
+                number: incidentChildGR.getValue('number'),
+                caller: incidentChildGR.getDisplayValue('caller_id'),
+                emai: incidentChildGR.caller_id.email.toString(),
+                description: incidentChildGR.getDisplayValue('short_description')
+            });
+        }
+
+        return JSON.stringify(data);
+    },
+
+    /**
+    * This function gets email address of a user based on the paramters received (callerName) and returns a mail.
+    *
+    * @param            {callerName}             sys_user name             contains the name of the user
+
+    * @returns          {string}                 objResult                 email of the user
+    */
+
+    getEmail: function(callerName) {
+        var userMailGR = new GlideRecord('sys_user');
+
+        userMailGR.addQuery('sys_id', callerName);
+        userMailGR.query();
+
+        if (userMailGR.next()) {
+            return userMailGR.getDisplayValue('email');
+        }
+    },
+
+    type: 'emailUtility'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-01 13:11:56</sys_created_on>
+        <sys_id>20309eef2f2dd110b2ab3f96f699b695</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>emailUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_20309eef2f2dd110b2ab3f96f699b695</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-21 13:22:17</sys_updated_on>
+    </sys_script_include>
+</record_update>

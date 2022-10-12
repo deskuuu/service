@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>incidentVerifyChild</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript( /* GlideRecord */ current, /* TemplatePrinter */ template,
+    /* Optional EmailOutbound */
+    email, /* Optional GlideRecord */ email_action,
+    /* Optional GlideRecord */
+    event) {
+
+    var parent = current.getUniqueValue();
+    var emailScript = new emailUtility();
+    var data = JSON.parse(emailScript.getIncidentChildData(parent));
+
+    var count = data.length;
+    var messagesParent = '<div class="info" style="background-color: #e7f3fe; border-left: 6px solid #2196F3; margin-bottom: 15px; padding: 4px 12px;">' +
+        '<p>This incident is parent of:<strong>' + count + '</strong>incidents</p></div>';
+
+    if (count > 0) {
+        template.print(messagesParent);
+
+        for (var i = 0; i < count; i++) {
+            template.print('<div class="success" style="background-color: #ddffdd; border-left: 6px solid #04AA6D; margin-bottom: 15px; padding: 4px 12px;">' + '<p><strong>Number: ' + data[i].number + '-</strong>' + '</p><p><strong>Short Description: ' + data[i].description + '-</strong>' + '</p></div>');
+            template.print('<br /> <br />');
+
+            email.addAddress('cc', data[i].email, data[i].caller);
+        }
+    } else {
+        template.print('<div class="info" style="background-color: #e7f3fe; border-left: 6px solid #2196F3; margin-bottom: 15px; padding: 4px 12px;">' +
+            '<p>This incident is <strong>NOT parent</strong> of any incidents!</p></div>');
+    }
+
+    //     var emails = [];
+    //  for (var person = 0; person < count; person++) {
+    //      var emaill = emailScript.getEmail(data.childCallers[person]);
+    //      emails.push(emaill);
+
+    //      email.addAddress('cc', emails[person], data.childuserNames[person]);
+
+    //  }
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 19:18:36</sys_created_on>
+        <sys_id>0c548c922f955110b2ab3f96f699b616</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_name>incidentVerifyChild</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_email_0c548c922f955110b2ab3f96f699b616</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-21 13:20:15</sys_updated_on>
+    </sys_script_email>
+</record_update>

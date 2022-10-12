@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_847697_serviceno.RESTUtility</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>RESTUtility</name>
+        <script><![CDATA[var RESTUtility = Class.create();
+RESTUtility.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    insertIncData: function(requestData) {
+        var gr = new GlideRecord('');
+        gr.addQuery("name", "value");
+        gr.query();
+        if (gr.next()) {
+
+        }
+
+    },
+
+    type: 'RESTUtility'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-02 08:31:04</sys_created_on>
+        <sys_id>d707963f2fe91510b2ab3f96f699b615</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RESTUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_include_d707963f2fe91510b2ab3f96f699b615</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-02 08:31:04</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</application>
+        <file_path/>
+        <instance_id>ea74b21ddb9f0c943050ac44d49619a5</instance_id>
+        <instance_name>dev101878</instance_name>
+        <name>sys_script_include_d707963f2fe91510b2ab3f96f699b615</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_847697_serviceno.RESTUtility&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;RESTUtility&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var RESTUtility = Class.create();
+RESTUtility.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    insertIncData: function(requestData) {
+        var gr = new GlideRecord('');
+        gr.addQuery("name", "value");
+        gr.query();
+        if (gr.next()) {
+
+        }
+
+    },
+
+    type: 'RESTUtility'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-09-02 08:31:04&lt;/sys_created_on&gt;&lt;sys_id&gt;d707963f2fe91510b2ab3f96f699b615&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;RESTUtility&lt;/sys_name&gt;&lt;sys_package display_value="ServiceNowTasks" source="x_847697_serviceno"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="ServiceNowTasks"&gt;b979020a2f9d1110b2ab3f96f699b655&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_d707963f2fe91510b2ab3f96f699b615&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-09-02 08:31:04&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1845514370</payload_hash>
+        <record_name>RESTUtility</record_name>
+        <reverted_from/>
+        <source>05a5f7da2fd19110b2ab3f96f699b6d7</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-02 08:31:04</sys_created_on>
+        <sys_id>e4ecd2732f2d1510b2ab3f96f699b61e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182fd5332430000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-02 08:31:04</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>20ecd273932d15104e084e481a26411e</update_guid>
+        <update_guid_history>20ecd273932d15104e084e481a26411e:-1845514370</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-07 11:26:54</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>2f1f4fc9e01742eab48c185442c02584</sys_id>
+        <sys_metadata>d707963f2fe91510b2ab3f96f699b615</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RESTUtility</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_scope_delete display_value="">c6f584af7b4b4086a7fdb8223c164a64</sys_scope_delete>
+        <sys_update_name>sys_script_include_d707963f2fe91510b2ab3f96f699b615</sys_update_name>
+        <sys_update_version display_value="sys_script_include_d707963f2fe91510b2ab3f96f699b615">e4ecd2732f2d1510b2ab3f96f699b61e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-07 11:26:54</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

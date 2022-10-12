@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope,spUtil,$http,$timeout,$rootScope) {
+  /* widget controller */
+ var c = this;
+
+	// global func which will be called from another widget "show data"
+	// return the clicked incident as obj{number, caller, category, priority, assignmentGroup, shortDescription}
+c.showData = function(action) {
+	alert(action.number)
+var obj= {
+action: action
+ };
+$rootScope.$broadcast('getIncident', obj);
+ }
+	
+	c.server.get({
+		action: 'getIncidentData',
+		input1: 'test'
+	}).then(function(res) {
+		c.data.incidentData = res.data.incidentData
+	});
+	
+//}
+//$scope.foo= function() {
+  
+//};
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.result-container {
+ margin-top: 10px;
+}
+
+li:hover {
+background-color: #d9534f;
+border-color: #B24441;
+}
+
+.btn-default:hover {
+background-color: #0B5685;
+border-color: #0F1916;
+  color: #FCFCFC;
+}
+
+</css>
+        <data_table>sp_instance_vlist</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>table,filter,maximum_entries,display_field,color,size,glyph,sp_page</field_list>
+        <has_preview>true</has_preview>
+        <id>testt</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+
+   var btn = element.find('.btn btn-default');
+   // on focus, expand the input box(es)
+   btn.on('hover', function() {
+      $(this).animate({width: "150px"});
+   });
+   // when leaving the box, reduce the width
+   btn.on('blur', function() {
+     $(this).animate({width: "10px"});
+   });
+
+}
+
+//angular.element('a:hover').css('background-color', '#4CAF50');]]></link>
+        <name>testt</name>
+        <option_schema>[{"name":"incident_limit","section":"other","default_value":"10","label":"incident limit","type":"integer"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+ data.items = [];
+	
+	// shows/query incidents with State “In Progress” with limit passed as parameter
+	var incidents = new incidentWidget().getIncidentsLimit(options.incident_limit);
+	data.items = incidents;
+	
+	if(input && input.action == 'getIncidentData') {
+		data.incidentData = {};
+	}
+
+})();
+
+
+    ]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-19 11:44:09</sys_created_on>
+        <sys_id>e0d2435f2f595510b2ab3f96f699b6cd</sys_id>
+        <sys_mod_count>110</sys_mod_count>
+        <sys_name>testt</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sp_widget_e0d2435f2f595510b2ab3f96f699b6cd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-12 08:09:22</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-primary">
+ <div class="panel-heading">Incidents</div>
+ <div class="panel-body">
+   <ul class="list-group result-container">
+     <li class="list-group-item" ng-repeat="item in c.data.items">  
+        <button class="btn btn-default" ng-click="c.showData(item)">
+          <a href>{{item.number}}</a>
+       </button>
+     </li>
+   </ul>
+ </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

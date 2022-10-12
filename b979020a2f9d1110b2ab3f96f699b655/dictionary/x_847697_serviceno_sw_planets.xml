@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="SW Planets" max_length="40" name="x_847697_serviceno_sw_planets" sizeclass="21" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Diameter" max_length="40" name="u_diameter" type="integer"/>
+        <element display="true" label="Name" max_length="256" name="u_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Terrain" max_length="128" name="u_terrain" type="string"/>
+    </element>
+</database>

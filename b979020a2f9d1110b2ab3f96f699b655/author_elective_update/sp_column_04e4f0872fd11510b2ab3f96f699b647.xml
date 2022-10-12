@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="DELETE">
+        <class_name/>
+        <order>4</order>
+        <size>3</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="1">33d4f0872fd11510b2ab3f96f699b640</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-18 06:45:30</sys_created_on>
+        <sys_id>04e4f0872fd11510b2ab3f96f699b647</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>4</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sp_column_04e4f0872fd11510b2ab3f96f699b647</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-18 06:46:32</sys_updated_on>
+    </sp_column>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</application>
+        <file_path/>
+        <instance_id>ea74b21ddb9f0c943050ac44d49619a5</instance_id>
+        <instance_name>dev101878</instance_name>
+        <name>sp_column_04e4f0872fd11510b2ab3f96f699b647</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column"><sp_column action="INSERT_OR_UPDATE"><class_name/><order>4</order><size>3</size><size_lg/><size_sm/><size_xs/><sp_row display_value="1">33d4f0872fd11510b2ab3f96f699b640</sp_row><sys_class_name>sp_column</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2022-08-18 06:45:30</sys_created_on><sys_id>04e4f0872fd11510b2ab3f96f699b647</sys_id><sys_mod_count>2</sys_mod_count><sys_name>4</sys_name><sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package><sys_policy/><sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope><sys_update_name>sp_column_04e4f0872fd11510b2ab3f96f699b647</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2022-08-18 06:46:32</sys_updated_on></sp_column></record_update>]]></payload>
+        <payload_hash>-1231946651</payload_hash>
+        <record_name>4</record_name>
+        <reverted_from/>
+        <source>4b46f3da2fd19110b2ab3f96f699b6c8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-18 06:46:32</sys_created_on>
+        <sys_id>5f1534472fd11510b2ab3f96f699b63b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182afb41c4f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-18 06:46:32</sys_updated_on>
+        <type>Column</type>
+        <update_guid>971534473bd1151066ca0f6ce30e4b3b</update_guid>
+        <update_guid_history>971534473bd1151066ca0f6ce30e4b3b:-1231946651,ae05748723d115109454ea0df07ea4e1:495593577,04e4f08712d115102c6ef7079bd50548:-1231946651</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="4">8a577c0b2fd11510b2ab3f96f699b648</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-18 06:56:17</sys_created_on>
+        <sys_db_object display_value="" name="sp_column">sp_column</sys_db_object>
+        <sys_id>b6e775b048aa4a08a1dc9c9b1a0d6d10</sys_id>
+        <sys_metadata>04e4f0872fd11510b2ab3f96f699b647</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>4</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_scope_delete display_value="">c6f584af7b4b4086a7fdb8223c164a64</sys_scope_delete>
+        <sys_update_name>sp_column_04e4f0872fd11510b2ab3f96f699b647</sys_update_name>
+        <sys_update_version display_value="sp_column_04e4f0872fd11510b2ab3f96f699b647">5f1534472fd11510b2ab3f96f699b63b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-18 06:56:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

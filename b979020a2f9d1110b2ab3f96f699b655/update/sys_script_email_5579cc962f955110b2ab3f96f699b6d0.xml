@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>incidentWeeklyReport</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript( /* GlideRecord */ current, /* TemplatePrinter */ template,
+    /* Optional EmailOutbound */
+    email, /* Optional GlideRecord */ email_action,
+    /* Optional GlideRecord */
+    event) {
+// TO ASK IF I NEED TO ADD HERE THE HTML AND CSS?
+    var reportUtility = new serviceDeskReport(),
+        titleReport = reportUtility.getMessageReportTitle(),
+        queriedIncidentsCount = reportUtility.getCount(),
+        forPrintIncidents = reportUtility.getPrint(),
+        emails = reportUtility.getGroupMemberMails();
+
+    template.print(titleReport + '<br></br>');
+    template.print(queriedIncidentsCount + '<br></br>');
+    template.print(forPrintIncidents.join('<br></br>'));
+
+    var count = (emails.length);
+    if (count > 0) {
+        for (var i = 0; i < count; i++) {
+            email.addAddress("cc", emails[count]);
+        }
+    }
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-15 19:41:35</sys_created_on>
+        <sys_id>5579cc962f955110b2ab3f96f699b6d0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>incidentWeeklyReport</sys_name>
+        <sys_package display_value="ServiceNowTasks" source="x_847697_serviceno">b979020a2f9d1110b2ab3f96f699b655</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ServiceNowTasks">b979020a2f9d1110b2ab3f96f699b655</sys_scope>
+        <sys_update_name>sys_script_email_5579cc962f955110b2ab3f96f699b6d0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-15 19:46:51</sys_updated_on>
+    </sys_script_email>
+</record_update>
